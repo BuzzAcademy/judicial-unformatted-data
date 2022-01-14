@@ -12,6 +12,11 @@ $data = [
     "password" => $password,
 ];
 $json = pj("https://data.judicial.gov.tw/jdg/api/Auth", $data);
+if (!isset($json['Token'])) {
+    print_r($json);
+    return;
+}
+
 $token = $json['Token'];
 
 // get list
